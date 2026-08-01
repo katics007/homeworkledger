@@ -1,0 +1,12 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "जि.प. भांगापुर",
+  "orientation": "portrait",
+  "scope": "/",
+  "short_name": "zpps",
+  "start_url": "https://homeworkledger.vercel.app/",
+  "theme_color": "#ffffff",
+  "lang": "mr"
+}
