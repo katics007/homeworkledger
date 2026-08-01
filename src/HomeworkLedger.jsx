@@ -12,12 +12,10 @@ import { supabase } from "./supabaseClient";
 // ---------- i18n ----------
 const STRINGS = {
   mr: {
-    appName: "गृहपाठ नोंदवही", appTagline: "रोजचा गृहपाठ, गुण आणि क्रमवारी",
+    appName: "जि.प.प्रा.शा. भांगापूर", appTagline: "रोजचा गृहपाठ, गुण आणि क्रमवारी",
     roleStudent: "विद्यार्थी", roleTeacher: "शिक्षक",
     userId: "युजर आयडी", password: "पासवर्ड", signIn: "साइन इन करा",
     loginError: "हा युजर आयडी किंवा पासवर्ड नोंदवहीशी जुळत नाही. कृपया पुन्हा तपासा.",
-    tryItOut: "वापरून पाहा", sharedNote: "हे अ‍ॅप उघडणाऱ्या सर्वांना एकच वर्ग-नोंदवही दिसते — लॉगिन, गृहपाठ आणि गुण सर्वांना दिसतात.",
-    resetLink: "साइन इन होत नाही? डेमो नोंदवही पुन्हा सेट करा",
     opening: "नोंदवही उघडत आहे…", saving: "जतन करत आहे…",
     logout: "बाहेर पडा",
     navSetHomework: "गृहपाठ द्या", navReview: "तपासणी व गुण", navStudents: "विद्यार्थी",
@@ -76,9 +74,6 @@ const STRINGS = {
     youSuffix: " (तुम्ही)", ptsWord: "गुण",
     noScoresYet: "अजून गुण नाहीत — गृहपाठ जमा झाल्यावर यादी भरेल.",
     saveErr: "जतन होऊ शकले नाही — कनेक्शन तपासा आणि पुन्हा प्रयत्न करा.",
-    demoTeacherRow: "शिक्षक", demoStudentRow: "विद्यार्थी",
-    resetConfirm: "यामुळे डिफॉल्ट डेमो शिक्षक व विद्यार्थी परत येतील. आधीचा गृहपाठ व गुण तसेच राहतील. पुढे जायचे का?",
-    resetDone: "डेमो नोंदवही पुन्हा सेट झाली. पुन्हा साइन इन करून पाहा.",
     yes: "हो", no: "नाही", ok: "ठीक आहे",
     lockedHw: "ही तारीख अजून आलेली नाही", availableOn: "{date} रोजी उपलब्ध होईल",
     subNavHomework: "गृहपाठ", subNavScores: "माझे गुण", subNavLeaderboard: "गुणवत्ता यादी",
@@ -104,14 +99,20 @@ const STRINGS = {
     removeVideoConfirm: "\"{n}\" काढायचा का?", invalidYoutubeUrl: "ही यूट्यूब लिंक ओळखता आली नाही.",
     videoAdded: "\"{n}\" जोडले.",
     navNotes: "नोट्स", navVideos: "व्हिडिओ",
+    navBackup: "बॅकअप", backupTitle: "बॅकअप व पुनर्संचयन", backupSub: "सर्व माहितीची प्रत जतन करा किंवा जुनी प्रत परत आणा.",
+    backupDesc: "सर्व विद्यार्थी, गृहपाठ, गुण, नोट्स व व्हिडिओंची एक फाईल डाउनलोड करा. ही फाईल सुरक्षित ठिकाणी ठेवा.",
+    downloadBackup: "बॅकअप डाउनलोड करा", backupDone: "बॅकअप डाउनलोड झाला.",
+    restoreTitle: "पुनर्संचयन", restoreDesc: "आधी डाउनलोड केलेली बॅकअप फाईल निवडा. यामुळे सध्याची सर्व माहिती त्या फाईलमधील माहितीने बदलली जाईल.",
+    chooseFile: "फाईल निवडा",
+    restoreConfirm: "यामुळे सध्याची सर्व माहिती निवडलेल्या फाईलमधील माहितीने बदलली जाईल. ही क्रिया परत बदलता येणार नाही. पुढे जायचे का?",
+    restoreDone: "माहिती यशस्वीरित्या पुनर्संचयित झाली.",
+    restoreErr: "फाईल वाचता आली नाही — योग्य बॅकअप फाईल निवडा.",
   },
   en: {
-    appName: "Homework Ledger", appTagline: "Daily assignments, scored & ranked",
+    appName: "जि.प.प्रा.शा. भांगापूर", appTagline: "Daily assignments, scored & ranked",
     roleStudent: "Student", roleTeacher: "Teacher",
     userId: "User ID", password: "Password", signIn: "Sign in",
     loginError: "That user ID or password doesn't match our register. Double-check and try again.",
-    tryItOut: "Try it out", sharedNote: "Everyone who opens this app shares the same class register — logins, homework and scores are visible to all users of it.",
-    resetLink: "Sign-in not working? Reset the demo register",
     opening: "Opening the register…", saving: "Saving…",
     logout: "Log out",
     navSetHomework: "Set Homework", navReview: "Review & Scores", navStudents: "Students",
@@ -170,9 +171,6 @@ const STRINGS = {
     youSuffix: " (you)", ptsWord: "pts",
     noScoresYet: "No scores yet — the leaderboard fills up as homework gets submitted.",
     saveErr: "Could not save — check connection and try again.",
-    demoTeacherRow: "Teacher", demoStudentRow: "Student",
-    resetConfirm: "This restores the default demo teacher and students. Existing homework and scores are kept. Continue?",
-    resetDone: "Demo register restored. Try signing in again.",
     yes: "Yes", no: "No", ok: "OK",
     lockedHw: "Not available yet", availableOn: "Available on {date}",
     subNavHomework: "Homework", subNavScores: "My Scores", subNavLeaderboard: "Leaderboard",
@@ -198,6 +196,14 @@ const STRINGS = {
     removeVideoConfirm: "Remove \"{n}\"?", invalidYoutubeUrl: "Couldn't recognize that YouTube link.",
     videoAdded: "\"{n}\" added.",
     navNotes: "Notes", navVideos: "Videos",
+    navBackup: "Backup", backupTitle: "Backup & restore", backupSub: "Save a copy of all data, or bring back an older copy.",
+    backupDesc: "Download a single file with all students, homework, scores, notes and videos. Keep this file somewhere safe.",
+    downloadBackup: "Download backup", backupDone: "Backup downloaded.",
+    restoreTitle: "Restore", restoreDesc: "Choose a backup file you downloaded earlier. This will replace all current data with the data in that file.",
+    chooseFile: "Choose file",
+    restoreConfirm: "This will replace all current data with the data in the selected file. This cannot be undone. Continue?",
+    restoreDone: "Data restored successfully.",
+    restoreErr: "Couldn't read that file — choose a valid backup file.",
   },
 };
 function makeT(lang) {
@@ -406,14 +412,6 @@ export default function App() {
     return ok;
   }, [showToast]);
 
-  const resetDemoData = useCallback(async () => {
-    if (!(await confirmDialog(t("resetConfirm")))) return;
-    await persist("hl_users", setUsers, { ...SEED_USERS, ...users }, t("saveErr"));
-    if (!classes || classes.length === 0) await persist("hl_classes", setClasses, SEED_CLASSES, t("saveErr"));
-    if (!subjects || subjects.length === 0) await persist("hl_subjects", setSubjects, SEED_SUBJECTS, t("saveErr"));
-    showToast(t("resetDone"));
-  }, [users, classes, subjects, persist, showToast, t, confirmDialog]);
-
   const api = {
     users, subjects, classes, homework, submissions, reattempts, notes, videos, lang, t,
     setUsers: (v) => persist("hl_users", setUsers, v, t("saveErr")),
@@ -438,7 +436,7 @@ export default function App() {
           <span>{t("opening")}</span>
         </div>
       ) : !currentUser ? (
-        <Login users={users} onLogin={setCurrentUser} onResetDemo={resetDemoData} lang={lang} setLang={setLang} t={t} />
+        <Login users={users} onLogin={setCurrentUser} lang={lang} setLang={setLang} t={t} />
       ) : currentUser.role === "teacher" ? (
         <TeacherApp user={currentUser} api={api} onLogout={() => setCurrentUser(null)} />
       ) : (
@@ -491,7 +489,7 @@ function LangToggle({ lang, setLang, compact }) {
 }
 
 // ---------- LOGIN ----------
-function Login({ users, onLogin, onResetDemo, lang, setLang, t }) {
+function Login({ users, onLogin, lang, setLang, t }) {
   const [role, setRole] = useState("student");
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
@@ -542,14 +540,6 @@ function Login({ users, onLogin, onResetDemo, lang, setLang, t }) {
           </label>
           {err && <div className="hl-error"><AlertCircle size={14} /> {err}</div>}
           <button className="hl-btn primary wide" type="button" onClick={submit}>{t("signIn")}</button>
-        </div>
-
-        <div className="hl-demo">
-          <div className="hl-demo-title">{t("tryItOut")}</div>
-          <div className="hl-demo-row"><b>{t("demoTeacherRow")}</b> teacher1 / teacher123</div>
-          <div className="hl-demo-row"><b>{t("demoStudentRow")}</b> stu1 / student123</div>
-          <p className="hl-demo-note">{t("sharedNote")}</p>
-          <button type="button" className="hl-reset-link" onClick={onResetDemo}>{t("resetLink")}</button>
         </div>
       </div>
     </div>
@@ -626,6 +616,7 @@ function TeacherApp({ user, api, onLogout }) {
     { key: "leaderboard", label: t("navLeaderboard"), icon: <Trophy size={18} /> },
     { key: "notes", label: t("navNotes"), icon: <StickyNote size={18} /> },
     { key: "videos", label: t("navVideos"), icon: <VideoIcon size={18} /> },
+    { key: "backup", label: t("navBackup"), icon: <Save size={18} /> },
   ];
   return (
     <Shell user={user} onLogout={onLogout} tabs={tabs} active={active} setActive={setActive} roleLabel={t("roleTeacher")} api={api}>
@@ -636,7 +627,86 @@ function TeacherApp({ user, api, onLogout }) {
       {active === "leaderboard" && <Leaderboard api={api} />}
       {active === "notes" && <NotesManager api={api} isTeacher />}
       {active === "videos" && <VideosManager api={api} isTeacher />}
+      {active === "backup" && <BackupRestore api={api} />}
     </Shell>
+  );
+}
+
+// ---------- BACKUP / RESTORE ----------
+function BackupRestore({ api }) {
+  const {
+    users, subjects, classes, homework, submissions, reattempts, notes, videos,
+    setUsers, setSubjects, setClasses, setHomework, setSubmissions, setReattempts, setNotes, setVideos,
+    showToast, confirm, t,
+  } = api;
+
+  const handleBackup = () => {
+    const payload = {
+      exportedAt: new Date().toISOString(),
+      users, subjects, classes, homework, submissions, reattempts, notes, videos,
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `homework-ledger-backup-${TODAY_ISO}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast(t("backupDone"));
+  };
+
+  const handleRestoreFile = async (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const proceed = await confirm(t("restoreConfirm"));
+    if (!proceed) { e.target.value = ""; return; }
+    try {
+      const text = await file.text();
+      const data = JSON.parse(text);
+      if (data.users) await setUsers(data.users);
+      if (data.subjects) await setSubjects(data.subjects);
+      if (data.classes) await setClasses(data.classes);
+      if (data.homework) await setHomework(data.homework);
+      if (data.submissions) await setSubmissions(data.submissions);
+      if (data.reattempts) await setReattempts(data.reattempts);
+      if (data.notes) await setNotes(data.notes);
+      if (data.videos) await setVideos(data.videos);
+      showToast(t("restoreDone"));
+    } catch (err) {
+      showToast(t("restoreErr"), "err");
+    }
+    e.target.value = "";
+  };
+
+  return (
+    <div>
+      <div className="hl-page-head">
+        <div className="hl-page-icon"><Save size={20} /></div>
+        <div>
+          <h2>{t("backupTitle")}</h2>
+          <p>{t("backupSub")}</p>
+        </div>
+      </div>
+
+      <div className="hl-card">
+        <div className="hl-subhead">{t("backupTitle")}</div>
+        <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)", lineHeight: 1.5 }}>{t("backupDesc")}</p>
+        <button className="hl-btn primary" type="button" onClick={handleBackup} style={{ width: "fit-content" }}>
+          <Save size={15} /> {t("downloadBackup")}
+        </button>
+      </div>
+
+      <div className="hl-card">
+        <div className="hl-subhead" style={{ marginTop: 0 }}>{t("restoreTitle")}</div>
+        <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-soft)", lineHeight: 1.5 }}>{t("restoreDesc")}</p>
+        <label className="hl-btn ghost hl-upload-btn" style={{ width: "fit-content" }}>
+          <Upload size={15} /> {t("chooseFile")}
+          <input type="file" accept="application/json" style={{ display: "none" }} onChange={handleRestoreFile} />
+        </label>
+      </div>
+    </div>
   );
 }
 
@@ -1528,32 +1598,25 @@ function Style() {
       @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap');
 
       .hl-root {
-        --paper: #FBF7EC;
-        --paper-line: #E4DAC4;
-        --margin: #D1685C;
-        --ink: #24302B;
-        --ink-soft: #5C6B62;
-        --board: #24413A;
-        --board-dark: #1A322C;
-        --gold: #E3A23A;
-        --gold-dark: #B87F27;
-        --coral: #C0503C;
-        --success: #4C8B63;
+        --paper: #F4FBFA;
+        --paper-line: #D8EFEC;
+        --margin: #14B8A6;
+        --ink: #123534;
+        --ink-soft: #5B7C79;
+        --board: #0F766E;
+        --board-dark: #0B5D56;
+        --gold: #F59E0B;
+        --gold-dark: #C2740A;
+        --coral: #E4483A;
+        --success: #16A34A;
         --card: #FFFFFF;
-        --border: #E4DAC4;
+        --border: #DCEEEC;
         font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
         color: var(--ink);
         min-height: 100vh;
-        background:
-          repeating-linear-gradient(var(--paper), var(--paper) 27px, var(--paper-line) 28px),
-          var(--paper);
+        background: linear-gradient(180deg, #F0FBF9 0%, #F7FDFC 320px, #F7FDFC 100%);
         position: relative;
         -webkit-tap-highlight-color: transparent;
-      }
-      .hl-root::before {
-        content: "";
-        position: fixed; top: 0; bottom: 0; left: 56px; width: 2px;
-        background: var(--margin); opacity: 0.3; z-index: 0; pointer-events: none;
       }
       .hl-root * { box-sizing: border-box; }
       .mono { font-family: 'JetBrains Mono', monospace; }
@@ -1781,7 +1844,6 @@ function Style() {
 
       /* ===== MOBILE ===== */
       @media (max-width: 760px) {
-        .hl-root::before { left: 14px; opacity: 0.2; }
         .hl-shell { flex-direction: column; }
         .hl-side { display: none; }
         .hl-topbar { display: flex; align-items: center; justify-content: space-between; background: var(--card); border-bottom: 1px solid var(--border); padding: 10px 14px; position: sticky; top: 0; z-index: 30; }
